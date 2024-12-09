@@ -1,20 +1,24 @@
 # How to Bypass CAPTCHA With Puppeteer
 
+- [How to Bypass CAPTCHA With Puppeteer](#how-to-bypass-captcha-with-puppeteer)
+  * [Using Puppeteer-stealth to bypass CAPTCHA](#using-puppeteer-stealth-to-bypass-captcha)
+  * [Using Web Unblocker with Node.JS](#using-web-unblocker-with-nodejs)
+
 To access protected websites, you must bypass CAPTCHA. Puppeteer, a Node.js library with a user-friendly API for managing Chrome/Chromium via the DevTools Protocol, can help. It can run in full-browser mode instead of headless mode.
 
 Well, why isn’t Puppeteer enough? Automated access using Puppeteer often triggers CAPTCHA or blocks as websites detect the automation.
 
 Let’s validate it using the following steps:
 
-You must have Node.JS installed on your system. Create a new Node.JS project and install Puppeteer using the following `npm` command:
+### 1. You must have Node.JS installed on your system. Create a new Node.JS project and install Puppeteer using the following `npm` command:
 
 ```npm i puppeteer```
 
-2. Import the Puppeteer library in your Node.JS file.
+### 2. Import the Puppeteer library in your Node.JS file.
 
 ```const puppeteer = require('puppeteer');```
 
-3. Create a new browser instance in headless mode and a new page using the following code:
+### 3. Create a new browser instance in headless mode and a new page using the following code:
 
 ```
 (async () => {
@@ -25,7 +29,7 @@ You must have Node.JS installed on your system. Create a new Node.JS project and
   const newpage = await browserObj.newPage();
 ```
 
-4. Since we need to take the screenshot on the desktop device, we can set the viewport size using the following code:
+### 4. Since we need to take the screenshot on the desktop device, we can set the viewport size using the following code:
 
 ```
   // Set the width and height of viewport
@@ -34,7 +38,7 @@ You must have Node.JS installed on your system. Create a new Node.JS project and
 
 The setViewPort() method sets the size of the webpage. You can change it according to your device requirements. 
 
-5. After that, navigate to a page URL (that you think is a CAPTCHA-protected page) and take a screenshot. For demonstration purposes, the code uses Oxylabs [scraping sandbox](https://sandbox.oxylabs.io/products). Remember to close the browser object at the end.
+### 5. After that, navigate to a page URL (that you think is a CAPTCHA-protected page) and take a screenshot. For demonstration purposes, the code uses Oxylabs [scraping sandbox](https://sandbox.oxylabs.io/products). Remember to close the browser object at the end.
 
 ```
   const url = 'https://sandbox.oxylabs.io/products';
@@ -79,13 +83,13 @@ const puppeteer = require('puppeteer');
 
 Here is the step-by-step procedure to implement this CAPTCHA bypass: 
 
-1. To start, you need to install the `puppeteer-extra` and `puppeteer-extra-plugin-stealth` packages.
+### 1. To start, you need to install the `puppeteer-extra` and `puppeteer-extra-plugin-stealth` packages.
 
 ```
 npm install puppeteer-extra-plugin-stealth puppeteer-extra
 ```
 
-2. After that, import the following required libraries in your Node.JS file:
+### 2. After that, import the following required libraries in your Node.JS file:
 
 ```
 const puppeteerExtra = require('puppeteer-extra');
@@ -94,7 +98,7 @@ const Stealth = require('puppeteer-extra-plugin-stealth');
 puppeteerExtra.use(Stealth());
 ```
 
-3. The next step is to create the browser object in headless mode, navigate to the URL and take a screenshot.
+### 3. The next step is to create the browser object in headless mode, navigate to the URL and take a screenshot.
 
 ```
 (async () => {
@@ -149,13 +153,13 @@ puppeteerExtra.use(Stealth());
 
 Web Unblocker uses AI to help users prevent CAPTCHA and gain access to public data from websites with advanced anti-bots implemented. To begin, you can send a basic query without any special options – the Web Unblocker tool will select the fastest CAPTCHA proxy, add all necessary headers, and provide you with the response body. 
 
-1. Install the node-fetch and HttpsProxyAgent using the following command:
+### 1. Install the node-fetch and HttpsProxyAgent using the following command:
 
 ```npm install node-fetch https-proxy-agent```
 
-2. [Sign up to Oxylabs](https://dashboard.oxylabs.io/en/) and get your credentials for using the API. 
+### 2. [Sign up to Oxylabs](https://dashboard.oxylabs.io/en/) and get your credentials for using the API. 
 
-3. Before importing the libraries, open the package.json file and enter these lines `"type": "module"`, for example:
+### 3. Before importing the libraries, open the package.json file and enter these lines `"type": "module"`, for example:
 
 ```
 {
@@ -182,7 +186,7 @@ import fs from 'fs';
 
 The `fs` library can help save the response in an HTML file. 
 
-4. Provide your user credentials and set up a proxy using `HttpsProxyAgent`.
+### 4. Provide your user credentials and set up a proxy using `HttpsProxyAgent`.
 
 ```
 const username = '<Your-username>';
@@ -194,7 +198,7 @@ const password = '<Your-password>';
     );
 ```
 
-5. Next, set the URL and issue a fetch request.
+### 5. Next, set the URL and issue a fetch request.
 
 ```
     // Ignore the certificate
@@ -208,7 +212,7 @@ const password = '<Your-password>';
 
 The environment variable `NODE_TLS_REJECT_UNAUTHORIZED` is set to zero so that Node.JS doesn't verify the SSL/TLS certificates. This is a required setting if you’re using Oxylabs’ Web Unblocker.
 
-6. In the end, you can convert the response into text and save it in an HTML file.
+### 6. In the end, you can convert the response into text and save it in an HTML file.
 
 ```
     const resp = await response.text();
