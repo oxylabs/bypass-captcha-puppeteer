@@ -2,7 +2,7 @@
 
 To access protected websites, you must bypass CAPTCHA. Puppeteer, a Node.js library with a user-friendly API for managing Chrome/Chromium via the DevTools Protocol, can help. It can run in full-browser mode instead of headless mode.
 
-Why isn’t Puppeteer enough? Automated access using Puppeteer often triggers CAPTCHA or blocks as websites detect the automation.
+Well, why isn’t Puppeteer enough? Automated access using Puppeteer often triggers CAPTCHA or blocks as websites detect the automation.
 
 Let’s validate it using the following steps:
 
