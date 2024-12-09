@@ -10,7 +10,9 @@ Well, why isn’t Puppeteer enough? Automated access using Puppeteer often trigg
 
 Let’s validate it using the following steps:
 
-### 1. You must have Node.JS installed on your system. Create a new Node.JS project and install Puppeteer using the following `npm` command:
+### 1. You must have Node.JS installed on your system.
+
+Create a new Node.JS project and install Puppeteer using the following `npm` command:
 
 ```npm i puppeteer```
 
@@ -38,7 +40,9 @@ Let’s validate it using the following steps:
 
 The setViewPort() method sets the size of the webpage. You can change it according to your device requirements. 
 
-### 5. After that, navigate to a page URL (that you think is a CAPTCHA-protected page) and take a screenshot. For demonstration purposes, the code uses Oxylabs [scraping sandbox](https://sandbox.oxylabs.io/products). Remember to close the browser object at the end.
+### 5. After that, navigate to a page URL (that you think is a CAPTCHA-protected page) and take a screenshot. 
+
+For demonstration purposes, the code uses Oxylabs [scraping sandbox](https://sandbox.oxylabs.io/products). Remember to close the browser object at the end.
 
 ```
   const url = 'https://sandbox.oxylabs.io/products';
